@@ -1,5 +1,5 @@
 
-import { Button } from 'components/Button/Button';
+
 
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { SearchBar } from './Searchbar/SearchBar';
