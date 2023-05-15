@@ -4,7 +4,7 @@
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { SearchBar } from './Searchbar/SearchBar';
 import { getSearchImage } from './FetchAPI/FetchAPI';
-import { Modal } from './Modal/Modal';
+// import { Modal } from './Modal/Modal';
 import { Component } from 'react';
 
 export class App extends Component {
