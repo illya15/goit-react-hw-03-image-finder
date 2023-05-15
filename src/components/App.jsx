@@ -81,15 +81,15 @@ export class App extends Component {
         />
         <ImageGallery images={this.state.pictures} showModal={this.showModal} />
         {/* <Loader visible={this.state.isLoading} /> */}
-        {this.state.pictures.length > 0 && !this.state.isLoading && (
-        //   <Button onClick={this.nextPage} />
-        // )}
+        {/* {this.state.pictures.length > 0 && !this.state.isLoading && (
+          <Button onClick={this.nextPage} />
+        )}
         {this.state.showModal && (
           <Modal
             modalImgUrl={this.state.modalImgUrl}
             closeModal={this.closeModal}
           />
-        )}
+        )} */}
       </div>
     );
   }
