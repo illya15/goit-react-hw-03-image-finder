@@ -1,25 +1,25 @@
-
-
 import { Component } from 'react';
 export class SearchBar extends Component {
   state = {
     q: '',
   };
 
-  handleChange = e => {
-    this.setState({
-      q: e.currentTarget.value.toLowerCase(),
-    });
-  };
+  
 
   handleSubmit = e => {
     e.preventDefault();
     if (this.state.q.trim() === '') {
-      alert('Enter something');
+      alert('Please enter something');
       return;
     }
     this.props.onSubmit(this.state.q);
     this.setState({ q: '' });
+  };
+
+  handleChange = e => {
+    this.setState({
+      q: e.currentTarget.value.toLowerCase(),
+    });
   };
 
   render() {

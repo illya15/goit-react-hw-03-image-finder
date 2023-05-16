@@ -3,8 +3,8 @@
 
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { SearchBar } from './Searchbar/SearchBar';
-import { getSearchImage } from './FetchAPI/FetchAPI';
-
+import { searchImage } from './FetchAPI/FetchAPI';
+import { Modal } from './Modal/Modal';
 import { Component } from 'react';
 
 export class App extends Component {
@@ -24,7 +24,7 @@ export class App extends Component {
       this.setState({
         isLoading: true,
       });
-      getSearchImage(this.state.searhQuerry, this.state.page)
+      searchImage(this.state.searhQuerry, this.state.page)
         .then(({ hits }) => {
           if (hits.length === 0) {
             alert('Enter the correct data for the request');
