@@ -1,6 +1,6 @@
 
-
-
+import { Button } from './Button/Button';
+import { Loader } from './Loader/Loader';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { SearchBar } from './Searchbar/SearchBar';
 import { searchImage } from './FetchAPI/FetchAPI';
@@ -80,8 +80,8 @@ export class App extends Component {
           clearPictures={this.state.pictures}
         />
         <ImageGallery images={this.state.pictures} showModal={this.showModal} />
-        {/* <Loader visible={this.state.isLoading} /> */}
-        {/* {this.state.pictures.length > 0 && !this.state.isLoading && (
+        <Loader visible={this.state.isLoading} /> 
+         {this.state.pictures.length > 0 && !this.state.isLoading && (
           <Button onClick={this.nextPage} />
         )}
         {this.state.showModal && (
@@ -89,7 +89,7 @@ export class App extends Component {
             modalImgUrl={this.state.modalImgUrl}
             closeModal={this.closeModal}
           />
-        )} */}
+        )}
       </div>
     );
   }
