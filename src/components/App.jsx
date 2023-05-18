@@ -1,4 +1,3 @@
-
 import { Button } from './Button/Button';
 import { Loader } from './Loader/Loader';
 import { ImageGallery } from './ImageGallery/ImageGallery';
@@ -15,6 +14,7 @@ export class App extends Component {
     isLoading: false,
     showModal: false,
     modalImgUrl: '',
+    total: 0,
   };
   componentDidUpdate(_, prevState) {
     if (
@@ -25,13 +25,18 @@ export class App extends Component {
         isLoading: true,
       });
       searchImage(this.state.searhQuerry, this.state.page)
-        .then(({ hits }) => {
+        .then(({ hits, totalHits }) => {
           if (hits.length === 0) {
             alert('Enter the correct data for the request');
           }
+
           this.setState(prevState => ({
             pictures: [...prevState.pictures, ...hits],
           }));
+
+          this.setState({
+            total: totalHits,
+          });
         })
         .finally(() => {
           this.setState({
@@ -50,6 +55,7 @@ export class App extends Component {
     this.setState({
       page: 1,
     });
+
     this.setState({
       pictures: [],
     });
@@ -80,10 +86,12 @@ export class App extends Component {
           clearPictures={this.state.pictures}
         />
         <ImageGallery images={this.state.pictures} showModal={this.showModal} />
-        <Loader visible={this.state.isLoading} /> 
-         {this.state.pictures.length > 0 && !this.state.isLoading && (
-          <Button onClick={this.nextPage} />
-        )}
+        <Loader visible={this.state.isLoading} />
+        {this.state.pictures.length > 0 &&
+          !this.state.isLoading &&
+           this.state.total > (this.state.page*12) && (
+            <Button onClick={this.nextPage} />
+          )}
         {this.state.showModal && (
           <Modal
             modalImgUrl={this.state.modalImgUrl}
@@ -95,13 +103,7 @@ export class App extends Component {
   }
 }
 
-
-
-
-
-
 // import { Component } from "react";
-
 
 // export default class App extends Component {
 
